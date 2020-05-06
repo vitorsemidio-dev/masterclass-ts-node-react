@@ -12,10 +12,10 @@ class UserController {
   async create(req: Request, res: Response) {
     const emailService = new EmailService();
 
-    emailService.sendMail(
-      { name: 'abc', email: 'email@email.com' },
-      { subject: 'Bem-vindo ao sistema', body: 'Olá' },
-    );
+    emailService.sendMail({
+      to: { name: 'abc', email: 'email@email.com' },
+      message: { subject: 'Bem-vindo ao sistema', body: 'Olá' },
+    });
 
     return res.send();
   }
